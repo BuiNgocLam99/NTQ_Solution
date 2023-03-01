@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\SignInController;
+use App\Http\Controllers\SignUpController;
+use App\Http\Livewire\User\SignUpComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/signin', [SignInController::class, 'index']);
+Route::post('/signin', [SignInController::class, 'postSignIn'])->name('user.post-sign-in');
+
+Route::get('/signup', [SignUpController::class, 'index']);
+Route::post('/signup', [SignUpController::class, 'postSignUp'])->name('user.post-sign-up');
+
+Route::get('/reset-password', [ResetPasswordController::class, 'index']);
+Route::post('/reset-password', [ResetPasswordController::class, 'postResetPassword'])->name('user.reset-password');
+
+
+
