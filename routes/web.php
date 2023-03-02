@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignUpController;
@@ -26,5 +28,7 @@ Route::post('/signup', [SignUpController::class, 'postSignUp'])->name('user.post
 Route::get('/reset-password', [ResetPasswordController::class, 'index']);
 Route::post('/reset-password', [ResetPasswordController::class, 'postResetPassword'])->name('user.reset-password');
 
+Route::get('/', [HomePageController::class, 'index']);
 
+Route::get('/product-detail', [ProductDetailController::class, 'index']);
 

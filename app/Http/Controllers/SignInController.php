@@ -15,6 +15,18 @@ class SignInController extends Controller
 
     public function postSignIn(Request $request)
     {
+        $request->validate(
+            [
+                'username' => 'required',
+                'password' => 'min:8|regex:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
+            ],
+            [
+                'required' => 'This field is required',
+                'min' => 'Must be at least 8 character long',
+                'regex' => 'At least 1 upperacse, 1 lowercase'
+            ]
+        );
+
         $username = $request->username;
         $password = $request->password;
 
