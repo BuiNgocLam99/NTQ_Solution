@@ -2,10 +2,9 @@
 
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ProductDetailController;
-use App\Http\Controllers\ResetPasswordController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignUpController;
-use App\Http\Livewire\User\SignUpComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,14 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/signin', [SignInController::class, 'index']);
+Route::get('/signin', [SignInController::class, 'index'])->name('user.sign-in');
 Route::post('/signin', [SignInController::class, 'postSignIn'])->name('user.post-sign-in');
 
 Route::get('/signup', [SignUpController::class, 'index']);
 Route::post('/signup', [SignUpController::class, 'postSignUp'])->name('user.post-sign-up');
 
-Route::get('/reset-password', [ResetPasswordController::class, 'index']);
-Route::post('/reset-password', [ResetPasswordController::class, 'postResetPassword'])->name('user.reset-password');
+Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('user.forgot-password');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'postForgotPassword'])->name('user.forgot-password');
 
 Route::get('/', [HomePageController::class, 'index']);
 

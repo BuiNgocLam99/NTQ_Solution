@@ -28,15 +28,23 @@ class SignUpController extends Controller
         );
 
         $account = [
-            'username' => $request->username,
-            'password' => $request->password,
             'email' => $request->email,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
         ];
 
-        Session::push('accountList', $account);
+        $accountList = (array) Session::get('accountList');
 
-        dd(Session::get('accountList'));
+        for($i = 0; $i < count($accountList); $i++){
+            if($account['username'] == $accountList[$i]['username'] || $account['email'] == $accountList[$i]['email']){
+                return redirect()->route('user.post-sign-up')->with(['error_message' => 'Your email or username has been existed!']);
+            }
+        }
 
-        return redirect()->route('user.post-sign-in')->with(['message' => 'Sign up successfully!']);
+        array_push($accountList, $account);
+
+        Session::put('accountList', $accountList);
+
+        return redirect()->route('user.post-sign-in')->with(['success_message' => 'Sign up successfully!']);
     }
 }
