@@ -30,4 +30,5 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'postForgotPas
 Route::get('/', [HomePageController::class, 'index']);
 
 Route::get('/product-detail', [ProductDetailController::class, 'index']);
+Route::post('/fetch', [ProductDetailController::class, 'fetch']);
 
