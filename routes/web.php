@@ -32,3 +32,4 @@ Route::get('/cart', [CartController::class, 'index']);
 
 Route::get('/checkout', [CheckoutController::class, 'index']);
 
+Route::get('/orders', [CheckoutController::class, 'index']);
