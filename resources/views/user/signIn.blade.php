@@ -59,11 +59,6 @@
                                         @csrf
 
                                         <div class="mb-3">
-                                            @if (Session::has('message'))
-                                                <div class="alert alert-primary" role="alert">
-                                                    {{ Session::get('message') }}
-                                                </div>
-                                            @endif
                                             @if (Session::has('success_message'))
                                                 <div class="alert alert-primary" role="alert">
                                                     {{ Session::get('success_message') }}
@@ -75,6 +70,7 @@
                                                 </div>
                                             @endif
                                         </div>
+
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username</label>
                                             <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
@@ -85,7 +81,7 @@
 
                                         <div class="mb-3">
                                             <div class="float-end">
-                                                <a href="{{ route('user.reset-password') }}" class="text-muted">Forgot password?</a>
+                                                <a href="{{ route('user.forgot-password') }}" class="text-muted">Forgot password?</a>
                                             </div>
                                             <label class="form-label" for="password-input">Password</label>
                                             <div class="position-relative auth-pass-inputgroup mb-3">

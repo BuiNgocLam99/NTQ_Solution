@@ -65,6 +65,11 @@
                                 <div class="p-2">
                                     <form method="POST">
                                         @csrf
+                                        @if (Session::has('error_message'))
+                                            <div class="alert alert-danger" role="alert">
+                                                {{ Session::get('error_message') }}
+                                            </div>
+                                        @endif
                                         <div class="mb-4">
                                             <label class="form-label">Email</label>
                                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter Email">

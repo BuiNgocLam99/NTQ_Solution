@@ -88,6 +88,19 @@
                                                 @csrf
 
                                                 <div class="mb-3">
+                                                    @if (Session::has('success_message'))
+                                                        <div class="alert alert-primary" role="alert">
+                                                            {{ Session::get('success_message') }}
+                                                        </div>
+                                                    @endif
+                                                    @if (Session::has('error_message'))
+                                                        <div class="alert alert-danger" role="alert">
+                                                            {{ Session::get('error_message') }}
+                                                        </div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="mb-3">
                                                     <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
                                                     <input type="email" name="email" class="form-control" placeholder="Enter email address" required>
                                                     <div class="invalid-feedback">
