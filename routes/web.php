@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignUpController;
@@ -29,4 +30,5 @@ Route::post('/reset-password', [ResetPasswordController::class, 'postResetPasswo
 
 Route::get('/cart', [CartController::class, 'index']);
 
+Route::get('/checkout', [CheckoutController::class, 'index']);
 
